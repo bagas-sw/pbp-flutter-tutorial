@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lab6/main.dart';
+import 'package:lab6/page/to_do_page.dart';
 
 class MyFormPage extends StatefulWidget {
   const MyFormPage({super.key});
@@ -53,6 +54,12 @@ class _MyFormPageState extends State<MyFormPage> {
             },
           ),
 
+          ListTile(
+              title: const Text("To Do"),
+              onTap: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => const ToDoPage()));
+              }),
         ],
       ),
     ),
@@ -295,7 +302,10 @@ class _MyFormPageState extends State<MyFormPage> {
                           Center(
                             child: Text('Kelas PBP: $kelasPBP')),
                           Center(
-                            child: Text('Practice Mode: $_nilaiSwitch')),
+                            child: Text('Practice Mode: ${_nilaiSwitch == true
+                                                ? 'Aktif'
+                                                : 'Tidak Aktif'}')
+                          ),
                           
                           SizedBox(height: 20),
                           TextButton(
